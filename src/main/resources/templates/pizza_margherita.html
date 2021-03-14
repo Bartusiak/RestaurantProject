@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Metpack - Pizza Recruitment Project</title>
+    <script th:src="@{/js/bootstrap.min.js}"></script>
+    <script th:src="@{/js/popper.min.js}"></script>
+    <script th:src="@{/js/jquery.min.js}"></script>
+    <script th:src="@{/js/order-details.js}"></script>
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/order.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/order-details.css}"/>
+</head>
+<header>
+</header>
+<body>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-12 flex-column">
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark justify-content-between">
+                <a class="navbar-brand logo-name" th:href="@{/menu}">Pizza Hot</a>
+                <div class="right">
+                    <div class="collapse navbar-collapse mr-auto" id="navbarContent">
+                        <ul class="navbar-nav inline-block">
+                            <li class="nav-item inline-block">
+                                <a class="nav-link">Historia zamówień</a>
+                            </li>
+                            <li class="nav-item inline-block">
+                                <img class="shopping-cart" th:src="@{/img/shopping-cart.png}" alt="shopping-cart"/>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-6 margin-top">
+            <div class="order-element ">
+                <img th:src="@{/img/margherita.png}" class="img-fluid" alt="Margherita"/>
+            </div>
+        </div>
+        <div class="col-lg-6 margin-top">
+            <section>
+                <form th:method="POST" th:action="@{/addToOrderList}">
+                    <h1>Margherita</h1>
+                    <h6>Cena za sztukę - 20zł</h6>
+                    <div class="form-group col-lg-2">
+                        <input class="form-control form-control-sm" th:type="numbers" name="quantity" id="quantity" placeholder="Ilość..." autocomplete="off" th:required="required"/>
+                    </div>
+                    <br>
+                    <div class="form-group">
+                        <strong><label class="custom-label">Dodatki</label></strong>
+                        <h6>Cena - 2zł</h6>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="extras" id="double_cheese" value="2">
+                            <label style="color: black;" class="form-check-label" for="double_cheese">Podwójny ser</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="extras" id="salami" value="2">
+                            <label style="color: black;" class="form-check-label" for="salami">Salami</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="extras" id="ham" value="2">
+                            <label style="color: black;" class="form-check-label" for="ham">Ham</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="extras" id="mushrooms" value="2">
+                            <label style="color: black;" class="form-check-label" for="mushrooms">Mushrooms</label>
+                        </div>
+                    </div>
+                    <br>
+                    <button type="submit"  class="btn btn-success">Dodaj do koszyka</button>
+                </form>
+            </section>
+        </div>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,33 @@
+plugins {
+    id 'org.springframework.boot' version '2.4.3'
+    id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+    id 'java'
+}
+
+group = 'com.metapack'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '1.8'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation group: 'org.json', name: 'json', version: '20090211'
+    compileOnly 'org.projectlombok:lombok'
+    compileOnly("org.springframework.boot:spring-boot-devtools")
+    developmentOnly 'org.springframework.boot:spring-boot-devtools'
+    annotationProcessor 'org.projectlombok:lombok'
+    testImplementation('org.springframework.boot:spring-boot-starter-test') {
+        exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
+    }
+
+    compile group: 'org.webjars', name: 'bootstrap', version: '4.1.3'
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-thymeleaf'
+}
+
+test {
+    useJUnitPlatform()
+}

@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en"
+                xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Metpack - Pizza Recruitment Project</title>
+    <script th:src="@{/js/bootstrap.min.js}"></script>
+    <script th:src="@{/js/popper.min.js}"></script>
+    <script th:src="@{/js/jquery.min.js}"></script>
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/order.css}"/>
+</head>
+<header>
+</header>
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12 flex-column">
+                <nav class="navbar navbar-expand-lg navbar-dark bg-dark justify-content-between">
+                    <a class="navbar-brand logo-name" th:href="@{/menu}">Pizza Hot</a>
+                    <div class="right">
+                        <div class="collapse navbar-collapse mr-auto" id="navbarContent">
+                            <ul class="navbar-nav inline-block">
+                                <li class="nav-item inline-block">
+                                    <a class="nav-link">Historia zamówień</a>
+                                </li>
+                                <li class="nav-item inline-block">
+                                    <img class="shopping-cart" th:src="@{/img/shopping-cart.png}" alt="shopping-cart"/>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <p class="text-center heading no-margin-bot">Menu</p>
+            </div>
+        </div>
+        <!-- PIZZA -->
+        <div class="row">
+            <div class="col-lg-3">
+                <div class="order-element">
+                    <img th:src="@{/img/margherita.png}" class="img-fluid" alt="Margherita"/>
+                    <h3 class="text-center fw-bold">Margherita</h3>
+                    <h5 class="text-center price-text">20 Zł</h5>
+                    <div class="text-center">
+                        <a th:href="@{/order-pizza/1}">
+                            <button type="button"  class="btn btn-success">Zamów</button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3">
+                <div class="order-element">
+                    <img th:src="@{/img/vegetariana.png}" class="img-fluid" alt="Vegetariana"/>
+                    <h3 class="text-center fw-bold">Vegetariana</h3>
+                    <h5 class="text-center price-text">22 Zł</h5>
+                    <div class="text-center">
+                        <a th:href="@{/order-pizza/2}">
+                            <button type="button"  class="btn btn-success">Zamów</button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3">
+                <div class="order-element">
+                    <img th:src="@{/img/toscana.png}" class="img-fluid" alt="Tosca"/>
+                    <h3 class="text-center fw-bold">Tosca</h3>
+                    <h5 class="text-center price-text">25 Zł</h5>
+                    <div class="text-center">
+                        <a th:href="@{/order-pizza/3}">
+                            <button type="button"  class="btn btn-success">Zamów</button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3">
+                <div class="order-element">
+                    <img th:src="@{/img/venecia.png}" class="img-fluid" alt="Venecia"/>
+                    <h3 class="text-center fw-bold">Venecia</h3>
+                    <h5 class="text-center price-text">25 Zł</h5>
+                    <div class="text-center">
+                        <a th:href="@{/order-pizza/4}">
+                            <button type="button"  class="btn btn-success">Zamów</button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-4">
+                <div class="order-element">
+                    <img th:src="@{/img/schab.png}" class="img-fluid" alt="Schab"/>
+                    <h3 class="text-center fw-bold">Schabowy</h3>
+                    <h6 class="text-center">Z frytkami/ryżem/ziemniakami</h6>
+                    <h5 class="text-center price-text">30 Zł</h5>
+                    <div class="text-center">
+                        <a th:href="@{/order-schab}">
+                            <button type="button"  class="btn btn-success">Zamów</button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="order-element">
+                    <img th:src="@{/img/frites_fish.png}" class="img-fluid" alt="Ryba z frytkami"/>
+                    <h3 class="text-center fw-bold">Ryba</h3>
+                    <h6 class="text-center">Z frytkami</h6>
+                    <h5 class="text-center price-text">28 Zł</h5>
+                    <div class="text-center">
+                        <a th:href="@{/order-fish}">
+                            <button type="button"  class="btn btn-success">Zamów</button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="order-element">
+                    <img th:src="@{/img/hungarian-cake.png}" class="img-fluid" alt="Placek po węgiersku"/>
+                    <h3 class="text-center fw-bold">Placek</h3>
+                    <h6 class="text-center">Po węgiersku</h6>
+                    <h5 class="text-center price-text">27 Zł</h5>
+                    <div class="text-center">
+                        <a th:href="@{/order-hungary-cake}">
+                            <button type="button"  class="btn btn-success">Zamów</button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-3">
+            </div>
+            <div class="col-lg-3">
+                <div class="order-element">
+                    <img th:src="@{/img/tomatoe_soup.png}" class="img-fluid" alt="Pomidorowa"/>
+                    <h3 class="text-center fw-bold">Pomidorowa</h3>
+                    <h5 class="text-center price-text">12 Zł</h5>
+                    <div class="text-center">
+                        <a th:href="@{/order-tomatoe-soup}">
+                            <button type="button"  class="btn btn-success">Zamów</button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3">
+                <div class="order-element">
+                    <img th:src="@{/img/chicken_soup.png}" class="img-fluid" alt="Rosół"/>
+                    <h3 class="text-center fw-bold">Rosół</h3>
+                    <h5 class="text-center price-text">10 Zł</h5>
+                    <div class="text-center">
+                        <a th:href="@{/order-chicken-soup}">
+                            <button type="button"  class="btn btn-success">Zamów</button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-4">
+                <div class="order-element">
+                    <img th:src="@{/img/coffee.png}" class="img-fluid" alt="Kawa"/>
+                    <h3 class="text-center fw-bold">Kawa</h3>
+                    <h5 class="text-center price-text">5 Zł</h5>
+                    <div class="text-center">
+                        <a th:href="@{/order-drink/(1)}">
+                            <button type="button"  class="btn btn-success">Zamów</button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="order-element">
+                    <img th:src="@{/img/tea.png}" class="img-fluid" alt="Herbata"/>
+                    <h3 class="text-center fw-bold">Herbata</h3>
+                    <h5 class="text-center price-text">5 Zł</h5>
+                    <div class="text-center">
+                        <a th:href="@{/order-drink/(2)}">
+                            <button type="button"  class="btn btn-success">Zamów</button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="order-element">
+                    <img th:src="@{/img/cola.png}" class="img-fluid" alt="Cola"/>
+                    <h3 class="text-center fw-bold">Cola</h3>
+                    <h5 class="text-center price-text">5 Zł</h5>
+                    <div class="text-center">
+                        <a th:href="@{/order-drink/(3)}">
+                            <button type="button"  class="btn btn-success">Zamów</button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,37 @@
+.logo-name{
+    margin-right: 1%;
+    padding-left: 3%;
+}
+.heading{
+    padding: 0.5% 5% 1% 5%;
+    text-transform: uppercase;
+    background: linear-gradient(to right, #0fa02a 49%, #ffffff 35%, #9f0c05 53%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-family: "Calibri";
+    font-style: normal;
+    font-size: 48px;
+    display: block;
+}
+.right{
+    display: inline-block;
+    padding-right: 3%;
+}
+.shopping-cart{
+    padding-right: 3%;
+}
+.inline-block{
+    display: inline-block;
+}
+.price-text{
+    color: #ff9033;
+}
+.no-margin-bot{
+    margin-bottom: 0;
+}
+.no-padding-right{
+    padding-right: 0;
+}
+.no-padding-left{
+    padding-left: 0;
+}
