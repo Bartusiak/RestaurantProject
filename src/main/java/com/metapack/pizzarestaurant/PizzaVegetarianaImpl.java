@@ -1,8 +1,8 @@
 package com.metapack.pizzarestaurant;
 
-public class PizzaVegetarianaImpl implements Pizza {
+public class PizzaVegetarianaImpl implements Food {
     @Override
-    public String typePizza() {
+    public String foodName() {
         return "Vegetariana";
     }
 

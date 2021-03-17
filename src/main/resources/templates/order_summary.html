@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en"
+                xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Metpack - Pizza Recruitment Project</title>
+    <script th:src="@{/js/bootstrap.min.js}"></script>
+    <script th:src="@{/js/popper.min.js}"></script>
+    <script th:src="@{/js/jquery.min.js}"></script>
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/order.css}"/>
+</head>
+<header>
+</header>
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12 flex-column">
+                <nav class="navbar navbar-expand-lg navbar-dark bg-dark justify-content-between">
+                    <a class="navbar-brand logo-name" th:href="@{/menu}">Pizza Hot</a>
+                    <div class="right">
+                        <div class="collapse navbar-collapse mr-auto" id="navbarContent">
+                            <ul class="navbar-nav inline-block">
+                                <li class="nav-item inline-block color-white">
+                                    <span class="inline-block">Cena:</span>
+                                    <p class="nav-item inline-block" th:if="${priceCart} == null" th:value="0" th:text="0 + zł"></p>
+                                    <p class="nav-item inline-block" id="priceCart" name="priceCart" th:unless="${priceCart} == null" th:value="${priceCart}" th:text="${priceCart} + zł"></p>
+                                </li>
+                                <li class="nav-item inline-block">
+                                    <a class="nav-link">Historia zamówień</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <p class="text-center heading no-margin-bot">Podsumowanie Zamówienia</p>
+            </div>
+            <div class="col-lg-12">
+                <table class="table-responsive">
+                    <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Nazwa dania</th>
+                        <th scope="col">Ilość</th>
+                        <th scope="col">Cena</th>
+                        <th scope="col">Akcja</th>
+                    </tr>
+                    </thead>
+                    <tr th:each="orderedList : ${orderList}"></tr>
+                    <td th:text="${orderList}"></td>
+                    <td th:text="orderedList.Food.foodName"></td>
+                    <td th:text="orderedList.foodPrice"></td>
+                    <td th:text="orderedList.amount"></td>
+                    <td>
+                        <div>
+                            <a th:href="@{/api/removeElement/{id}(id=foodList.Id)}">
+                                <button class="btn"><i class="fa fa-bars"></i>
+                                    <span>Usuń z zamówienia</span>
+                                </button>
+                            </a>
+                        </div>
+                    </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>

@@ -1,18 +1,18 @@
 package com.metapack.pizzarestaurant;
 
-public class DoubleCheese extends PizzaDecorator {
+public class DoubleCheese extends FoodDecorator {
 
-    public DoubleCheese(Pizza pizza) {
+    public DoubleCheese(Food pizza) {
         super(pizza);
     }
 
     @Override
-    public String typePizza() {
-        return pizza.typePizza() + ", Double Cheese";
+    public String foodName() {
+        return food.foodName() + ", Double Cheese";
     }
 
     @Override
     public int getCost() {
-        return pizza.getCost() + 2;
+        return food.getCost() + 2;
     }
 }

@@ -1,18 +1,18 @@
 package com.metapack.pizzarestaurant;
 
-public class Ham extends PizzaDecorator {
+public class Ham extends FoodDecorator {
 
-    public Ham(Pizza pizza) {
+    public Ham(Food pizza) {
         super(pizza);
     }
 
     @Override
-    public String typePizza() {
-        return pizza.typePizza() + ", Ham";
+    public String foodName() {
+        return food.foodName() + ", Ham";
     }
 
     @Override
     public int getCost() {
-        return pizza.getCost() + 2;
+        return food.getCost() + 2;
     }
 }

@@ -13,6 +13,9 @@
     font-size: 48px;
     display: block;
 }
+.color-white{
+    color: white;
+}
 .right{
     display: inline-block;
     padding-right: 3%;
