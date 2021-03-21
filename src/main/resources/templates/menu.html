@@ -28,7 +28,7 @@
                                     <p class="nav-item inline-block" id="priceCart" name="priceCart" th:unless="${priceCart} == null" th:value="${priceCart}" th:text="${priceCart} + zł"></p>
                                 </li>
                                 <li class="nav-item inline-block">
-                                    <a class="nav-link">Historia zamówień</a>
+                                    <a th:href="@{/history-order-list}" class="nav-link">Historia zamówień</a>
                                 </li>
                                 <a class="nav-item inline-block" th:href="@{/send-order}" >
                                     <img class="shopping-cart" th:src="@{/img/shopping-cart.png}" alt="shopping-cart"/>
@@ -42,6 +42,8 @@
         <div class="row">
             <div class="col-lg-12">
                 <p class="text-center heading no-margin-bot">Menu</p>
+                <p class="alert-danger" th:text="${msgError}"/>
+                <p class="alert-success" th:text="${msgOrderSuccess}"/>
             </div>
         </div>
         <!-- PIZZA -->

@@ -13,6 +13,9 @@
     font-size: 48px;
     display: block;
 }
+.name-col{
+    width: 40%;
+}
 .color-white{
     color: white;
 }

@@ -1,1 +1,15 @@
-{"Id":1,"Food":{"foodPrice":48,"foodName":"Margherita, Double Cheese, Mushrooms"}}
+{
+  "Id": "Sat Mar 20 19:42:51 CET 2021",
+  "Food": [
+    {
+      "foodName": "Vegetariana",
+      "foodPrice": 22,
+      "amount": 2
+    },
+    {
+      "foodName": "Placek po węgiersku",
+      "foodPrice": 27,
+      "amount": 3
+    }
+  ]
+}

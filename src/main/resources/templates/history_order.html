@@ -42,45 +42,35 @@
             </div>
             <div class="col-lg-12">
                 <table class="table">
-                    <thead>
+                   <thead>
                     <tr>
-                        <th>#</th>
-                        <th th:class="name-col" >Nazwa dania</th>
-                        <th>Cena</th>
-                        <th>Ilość</th>
-                        <th>Suma</th>
-                        <th>Akcja</th>
+                        <th th:text="${content[0].id}"></th>
+                        <th th:class="name-col" th:text="${content[0].itemVal}"></th>
+                        <th th:text="${content[0].priceVal}"></th>
+                        <th th:text="${content[0].amount}"></th>
+                        <th th:text="${content[0].totalVal}"></th>
                     </tr>
                     </thead>
-                    <tr th:each="i : ${#numbers.sequence(0,orderListCount - 1)}" th:if="(${orderListCount}-1>=0)">
+                    <tr th:each="i : ${#numbers.sequence(1, content.size() - 2)}" th:if="(${contentCount}-1>=1)">
                         <td th:text="${i}"></td>
-                        <td th:text="${orderList[i].foodName}"></td>
-                        <td th:text="${orderList[i].foodPrice} + 'zł'"></td>
-                        <td th:text="${orderList[i].amount}"></td>
-                        <td th:text="${orderList[i].getSum()} + 'zł'"></td>
-                        <td>
-                            <div>
-                                <a th:href="@{/remove-element/{id}(id=${i})}">
-                                    <button class="btn btn-danger"><i class="fa fa-bars"></i>
-                                        <span>Usuń z zamówienia</span>
-                                    </button>
-                                </a>
-                            </div>
-                        </td>
+                        <td th:text="${content[i].id}"></td>
+                        <td th:text="${content[i].itemVal}"></td>
+                        <td th:text="${content[i].priceVal}"></td>
+                        <td th:text="${content[i].amount}"></td>
+                        <td th:text="${content[i].totalVal}"></td>
                     </tr>
                     </tbody>
                 </table>
                 <div>
-                    <form method="POST" th:action="@{/finalize-order}" th:if="(${orderListCount}-1>=0)">
+                    <form>
                         <div class="row">
                             <div class="form-group col-lg-4">
-                                <input type="email" class="form-control form-control-sm" name="email" id="email" placeholder="Adres email..." autocomplete="off" th:required="required"/>
+                                <label>Email:</label>
+                                <input type="email" class="form-control form-control-sm" th:value="${content[content.size()-1].email}" name="email" id="email" disabled/>
                             </div>
                             <div class="form-group col-lg-4">
-                                <input type="text" class="form-control form-control-sm" name="phone" id="phone" placeholder="Numer telefonu..." autocomplete="off" required="" pattern="[0-9]{9}"/>
-                            </div>
-                            <div class="form-group col-lg-2">
-                                <button type="submit"  class="btn btn-success">Wyślij zamówienie</button>
+                                <label>Telefon:</label>
+                                <input type="text" class="form-control form-control-sm" th:value="${content[content.size()-1].phone}"name="phone" id="phone" disabled/>
                             </div>
                         </div>
                     </form>
