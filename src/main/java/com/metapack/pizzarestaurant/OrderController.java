@@ -83,7 +83,8 @@ public class OrderController {
     @GetMapping("/history-order-list")
     public String getOrderHistoryList(ModelMap modelMap){
         String[] fileList;
-        File path = new File("I:\\PROGRAMUJEMY\\JAVA\\Metapack\\pizza-restaurant\\src\\main\\resources\\static\\order_history");
+        File path = new File("src\\main\\resources\\static\\order_history");
+        log.info(path.toString());
         fileList = path.list();
         modelMap.addAttribute("fileList",fileList);
         modelMap.addAttribute("fileListCount",fileList.length);
@@ -95,7 +96,7 @@ public class OrderController {
     public String openFile(@PathVariable String fileName,
             ModelMap modelMap) throws IOException {
 
-        File file = new File( "I:\\PROGRAMUJEMY\\JAVA\\Metapack\\pizza-restaurant\\src\\main\\resources\\static\\order_history\\" + fileName);
+        File file = new File( "src\\main\\resources\\static\\order_history\\" + fileName);
         String content = FileUtils.readFileToString(file,"UTF-8");
         List<ProductParse> listProducts = new CsvToBeanBuilder(new FileReader(file))
                 .withType(ProductParse.class)
@@ -117,7 +118,6 @@ public class OrderController {
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy_mm_dd_hh_mm_ss");
         String date = sdf.format(new Date(System.currentTimeMillis()));
         String tempString = "";
-
         try {
             Properties props = new Properties();
             props.put("mail.smtp.port", 465);
@@ -170,7 +170,7 @@ public class OrderController {
         }
 
         try {
-            saveOrderToFolderHistory(date.toString(), email, phone);
+            saveOrderToFolderHistory(date, email, phone);
         }
         catch (Exception e){
             redirectAttributes.addFlashAttribute("msgError", "Zamówienie nie zostało zrealizowane. Problem z zapisaniem zamówienia");
@@ -466,7 +466,6 @@ public class OrderController {
                 Food tosca = new PizzaToscaImpl();
                 Food details_tosca = checkPizzaAddons(tosca,double_cheese,salami,ham,mushrooms);
                 totalPrice=totalPrice+(details_tosca.getCost()*quantity);
-                //arrayList = addJsonObjToArray(orderToJSON(details_tosca,quantity));
                 orderList.add(new Item(details_tosca.foodName(),details_tosca.getCost(),quantity));
                 i++;
                 model.addAttribute("priceCart",totalPrice);
@@ -502,19 +501,18 @@ public class OrderController {
 
 
     private void saveOrderToFolderHistory(String date, String email, String phone) throws IOException {
-        Path path = Paths.get(("I:\\PROGRAMUJEMY\\JAVA\\Metapack\\pizza-restaurant\\src\\main\\resources\\static\\order_history\\"));
+        Path path = Paths.get(("src\\main\\resources\\static\\order_history"));
+        log.info(String.valueOf(path));
         File file = new File(path+"\\"+date+".csv");
-        if(Files.exists(path)){
-            FileUtils.writeStringToFile(file, "LP,Zamówienie,Cena jednostkowa,Ilość,Suma,Email,Telefon\n","UTF-8",true);
-            for(int k=0;k<=orderList.size()-1;k++){
-                FileUtils.writeStringToFile(file, "\"" + orderList.get(k).foodName +
-                        "\",\"" + orderList.get(k).foodPrice + "\",\"" + orderList.get(k).amount +
-                        "\",\"" + orderList.get(k).foodPrice * orderList.get(k).amount + "\",\"\",\"\"\n" , "UTF-8", true);
-            }
-            FileUtils.writeStringToFile(file, "\"\",\"\",\"\",\"\",\"\",\""+email+"\","+"\""+phone+"\"\n","UTF-8",true);
-        }else {
-           log.warning("Error with method saveOrderToFolderHistory");
+        log.warning("FILE:  " + file);
+        FileUtils.writeStringToFile(file, "LP,Zamówienie,Cena jednostkowa,Ilość,Suma,Email,Telefon\n","UTF-8",true);
+        for(int k=0;k<=orderList.size()-1;k++){
+            FileUtils.writeStringToFile(file, "\"" + orderList.get(k).foodName +
+                    "\",\"" + orderList.get(k).foodPrice + "\",\"" + orderList.get(k).amount +
+                    "\",\"" + orderList.get(k).foodPrice * orderList.get(k).amount + "\",\"\",\"\"\n" , "UTF-8", true);
         }
+        FileUtils.writeStringToFile(file, "\"\",\"\",\"\",\"\",\"\",\""+email+"\","+"\""+phone+"\"\n","UTF-8",true);
+
     }
 
 }
